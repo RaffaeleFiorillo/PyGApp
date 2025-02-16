@@ -1,4 +1,4 @@
-from ...pygapp.utils import audio
+from src.pygapp.utils import audio
 from src.menu.common.sounds import volume_change_sound
 from .button import Button
 from pygame import Surface

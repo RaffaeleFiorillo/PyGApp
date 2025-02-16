@@ -1,11 +1,10 @@
 from pygame import mixer
-from .user_data_management import get_gameplay_data
-mixer.init()
+mixer.init()  # Initiate the mixer functionalities (makes the audio work)
 
 
 def get_sound_volume() -> float:
     try:
-        level = get_gameplay_data()["s_volume"]
+        level = 1 # get_gameplay_data()["s_volume"]
         return float(level)/10
     except:
         return 1.0
@@ -13,7 +12,7 @@ def get_sound_volume() -> float:
 
 def get_music_volume() -> float:
     try:
-        level = get_gameplay_data()["m_volume"]
+        level = 1 # get_gameplay_data()["m_volume"]
         return float(level) / 20.0
     except:
         return 0.5

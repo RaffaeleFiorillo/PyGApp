@@ -1,37 +1,33 @@
 import pygame
-from src.app_config import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_LABLE, SCREEN_ICON_IMAGE_PATH
+from src.app_config import SCREEN, SCREEN_LABEL, SCREEN_ICON_IMAGE_PATH
 from src.menu import INTERFACE_LIST, STARTING_LINK, ENDING_LINK
+from src.pygapp.utils import graphics as grp
 
 
 class App:
     """
-        Generic App class that encapsulates the logic for switching between the apps interfaces. \n
+        Generic App class that encapsulates the logic for switching between the apps menu. \n
         It uses the MENU_LINKS to establish this interface switching behavior. \n
-        Basically this class just creates the connection between the different interfaces created in the "menu" package.
+        Basically this class just creates the connection between the different menu created in the "menu" package.
     """
-    
     # This variable holds a dictionary with the structure: {(str)*InterfaceLink*: (callable)*InterfaceDisplayFunction*}
     # The *InterfaceLink* is a unique identification for the interface;
     # The *InterfaceDisplayFunction* is a function that displays an interface and returns the link to the next interface
     interfaces: {str: callable} = {}
     # The screen is the main surface of the App (where all the images will be shown)
-    screen: pygame.Surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    
+    screen: pygame.Surface = SCREEN
+
     def __init__(self):
-        pygame.init()  # Initiate pygame to ensure all its components work
-        pygame.mixer.init()  # Initiate the mixer functionalities (makes the audio work)
-        pygame.font.init()  # Initiate the pygame text fonts
-        
-        app_label = SCREEN_LABLE if SCREEN_LABLE else "PyGApp Application"
+        app_label = SCREEN_LABEL if SCREEN_LABEL else "PyGApp Application"
         pygame.display.set_caption(app_label)
         icon_image_path = SCREEN_ICON_IMAGE_PATH if SCREEN_ICON_IMAGE_PATH else "icon.ico"
-        pygame.display.set_icon(pygame.image.load(icon_image_path))
+        pygame.display.set_icon(grp.load_image(icon_image_path))
         
         self._create_interfaces_links()
-    
+
     def _create_interfaces_links(self):
         """
-            Creates the *interface* property in a way that the App can use it to navigate throgh the interfaces.\n
+            Creates the *interface* property in a way that the App can use it to navigate throgh the menu.\n
             The App will include an Interface only if it is inside the src.menu.INTERFACE_LIST variable. \n
             :raises Exception: If a duplicated link is found (two Interfaces have the same link value).
         """

@@ -1,7 +1,7 @@
 from src.pygapp.utils import graphics as grp
 from src.pygapp.utils import get_gameplay_data
-from ...pygapp.utils import audio
-from .. import sounds
+from src.pygapp.utils import audio
+from src.menu import sounds
 from .button import Button
 from pygame import Surface
 import pygame

@@ -2,17 +2,19 @@ from pygame import Surface
 
 
 class BaseWidget:
-	def __init__(self, x: int, y: int, width: int, height: int):
+	def __init__(self, x: int, y: int, width: int, height: int, z: int = 0):
 		"""
 		Explicit initialization of the Widget.
 		
 		:param x: x coordentate on the screen
 		:param y: y coordenate on the screen
+		:param z: z coordentate on the screen (drawing priority)
 		:param width: width of the widget
 		:param height: height of the widget
 		"""
 		self.x = x
 		self.y = y
+		self.z = z
 		self.width = width
 		self.height = height
 	

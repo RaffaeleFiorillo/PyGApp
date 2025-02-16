@@ -1,4 +1,4 @@
-from src.menu.bases.interface_bases import BaseInterface
+from src.pygapp.to_refactor.bases import BaseInterface
 
 
 class ExitInterface(BaseInterface):

@@ -1,6 +1,8 @@
 from pygame import Surface
 from .common import *
 import pygame
+pygame.display.init()
+pygame.font.init()  # Initiate the pygame text fonts
 
 
 # returns an image ready to be displayed on the screen. "convert_alpha" makes it much faster to display
@@ -28,7 +30,7 @@ def create_sized_text(max_size_image: int, max_size_letter: int, text: str,
 def write_name_password(screen: Surface, name: [str], password: [str], active: int, hide: bool) -> None:
     coordinates1 = [(330, 205), (330, 351)]
     pygame.draw.rect(screen, (0, 0, 255), (coordinates1[active], (422, 57)), 8)
-    screen.blit(load_image("menu/interfaces/navigation/pointer.png"),
+    screen.blit(load_image("menu/menu/navigation/pointer.png"),
                 (coordinates1[active][0] + 450, coordinates1[active][1]))
     coordinates2 = [(385, 217), (385, 363)]
     if hide:

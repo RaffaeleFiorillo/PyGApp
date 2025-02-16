@@ -1,8 +1,8 @@
 import pygame
 from pygame import Surface
 from pygame.event import Event as PygameEvent
-from src.menu.bases import BasicInputManagement
-from src.menu.buttons import Button
+from src.pygapp.to_refactor.bases import BasicInputManagement
+from src.pygapp.to_refactor.buttons import Button
 from src.pygapp.utils import graphics as grp
 
 
@@ -21,7 +21,7 @@ class MenuInterface_A(BasicInputManagement):
 		self.active_code = 0  # index of the active button
 		self.current_frame = 0  # frame representing the current state of the button's evidencing effect
 		self.effect_coo = e_coo  # coordinates where the effects will be displayed
-		self.coord_effect: (int, int)  # coordinates of the effect currently at use
+		self.coord_effect: (int, int) = (0, 0)  # coordinates of the effect currently at use
 		self.update_coord_effect()
 	
 	@staticmethod
